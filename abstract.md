@@ -1,9 +1,16 @@
 # Gammapy: a Python Package for Gamma-Ray Astronomy
 
-Gammapy is a community-developed, open source Python package for Gamma-Ray Astronomy. It builts on the scientific Python ecosystem such as Numpy, Scipy and Astropy to implement high level analysis functionality for any counts-based Gamma-Ray data. Starting from event lists and parametristaion of the instrument response it 
-supports reduction of data to user selected It also implememnts a varity of background estimation methods for spectral, spatial, combined spectromorphological as well as time analysis.
+Gammapy is a community-developed, open source Python package for Gamma-Ray Astronomy.
+It builts on the scientific Python ecosystem Numpy, Scipy and Astropy and implements
+high level analysis functionality applicable to Gamma-Ray data of many instruments.
+Starting from event lists and description of the specific instrument response it supports
+reduction of the input data to binned data structures, such as WCS, HEALPix or region
+based maps.
 
-It supports a variaty of spectral, spatial and temporla models as well as user implemented custom models, e.g. parametrising energy dependent morphology of sources.
+It also offers a varity of background estimation methods for spectral, spatial,
+combined spectro-morphological as well as time analysis.
+
+It supports a variaty of spectral, spatial and temporal models as well as user implemented custom models, e.g. parametrising energy dependent morphology of sources.
 
 It also supports joint likelihood fitting as well has multi-instrument analysis.
 
