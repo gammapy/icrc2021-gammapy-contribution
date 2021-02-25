@@ -9,15 +9,15 @@ observatories, as well as space based instruments.
 Starting from event lists and a description of the specific instrument response functions (IRF)
 stored in a open FITS based data format, Gammapy implements the reduction of the input data
 and instrument reponse to binned data structures, such as WCS, HEALPix or region based maps
-with arbitrary non-spatial axes, typically energy. It also allows to handle the
-dependency of the instrument response with time, energy as well as position on the sky.
-In addition it offers a variety of background estimation methods for spectral, spatial,
-and combined spectro-morphological analysis. Counts data, background and IRFs
+with arbitrary non-spatial axes, typically energy. Therevy it allows to handles the
+dependency of the IRFs with time, energy as well as position on the sky.
+It offers a variety of background estimation methods for spectral, spatial,
+and combined spectro-morphological analysis. Counts, background and IRFs data
 are bundled in datasets and can be serialised, rebinned and stacked.
 
-Gammapy allows to model the binned data using Poisson maximum likelihood fitting.
-It supports a variety of built-in spectral, spatial and temporal models as well as user implemented
-custom models, e.g. energy dependent morphology of Gamma-Ray sources. Multiple datasets
+Gammapy allows to model binned data using Poisson maximum likelihood fitting.
+It offers a variety of built-in spectral, spatial and temporal models as well as user implemented
+custom models, to model e.g. energy dependent morphology of Gamma-Ray sources. Multiple datasets
 can be combined in a joint-likelihood approach to handle either time dependent IRFs, different classes
 of events or combination of data from multiple instruments. At the highest API level Gammapy implements
 methods to estimate flux points, including likelihood profiles per energy bin, light curves as well as
