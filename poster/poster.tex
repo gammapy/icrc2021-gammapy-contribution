@@ -18,9 +18,15 @@
 \usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{pgfplots}
-\usepackage{fontawesome}
+%\usepackage{minted}
+% \lstset{
+%   language=bash,
+%   basicstyle=\ttfamily
+% }
+\usepackage{fontawesome5}
+\usepackage{orcidlink}
 \setbeamerfont{caption name}{series=\bfseries}
-
+\setbeamerfont{footline}{size=\fontsize{32}{11}\selectfont}
 
 \definecolor{monokaibg}{HTML}{272822}
 
@@ -45,17 +51,17 @@
 \title{Gammapy: a Python Package for Gamma-Ray Astronomy}
 
 \author{
-    \textbf{Axel, Donath} \inst{1} \and
+    \textbf{Axel, Donath} \orcidlink{0000-0003-4568-7005} \inst{1} \and
     \textbf{Regis, Terrier} \inst{2} \and
-    Atreyee, Sinha \inst{3} \and
-    Luca, Giunti \inst{4} \and
-    Quentin, Remy \inst{1} \and
-    Jose Enrique, Ruiz \inst{5} \and
-    Fabio, Acero \inst{6} \and
-    Fabio, Pintore \inst{7} \and
-    Cosimo, Nigro \inst{8} \and
-    Bruno, Khelifi  \inst{2} \and
-    Laura Oliviera-Nieto  \inst{1} \and
+    Atreyee Sinha \inst{3} \and
+    Luca Giunti \inst{4} \and
+    Quentin Remy \inst{1} \and
+    Jose Enrique,~Ruiz \inst{5} \and
+    Fabio,~Acero \inst{6} \and
+    Fabio,~Pintore \inst{7} \and
+    Cosimo,~Nigro \orcidlink{0000-0001-8375-1907} \inst{8} \and
+    Bruno,~Khelifi  \inst{2} \and
+    Laura,~Oliviera-Nieto  \orcidlink{0000-0002-9105-0518} \inst{1} \and
     Maximilian, Noethe \inst{9} \and
     for the Gammapy developers
   }
@@ -77,7 +83,10 @@
 % ====================
 
 \footercontent{
-  \href{https://www.gammapy.org}{https://www.gammapy.org.com} \hfill
+  \href{https://www.gammapy.org}{$\gamma \pi$~~Webpage} \hfill
+  \href{https://github.com/gammapy/gammapy/}{\faGithub~~Github}  \hfill
+  \href{https://twitter.com/gammapyst}{\faTwitter~~Twitter}  \hfill
+  \href{https://gammapy.slack.com/}{\faSlack~~Slack}  \hfill
   ICRC 2021, Berlin \hfill
   \href{mailto:alyssa.p.hacker@example.com}{alyssa.p.hacker@example.com}}
 % (can be left out to remove footer)
@@ -143,8 +152,6 @@
 
     Thre recommanded way to install Gammapy is to \coloredhref[pink]{https://www.anaconda.com/products/individual}{download the Anaconda Python distribution} and then create a new virtual environment
     from the dedicated conda environment file:
-
-
 
   \end{alertblock}
 
@@ -230,7 +237,9 @@
 
 \begin{column}{\colwidth}
 
-  \begin{block}{A block containing some math}
+  \begin{block}{CTA Science Tools}
+    Gammapy has recently been selected as the package of choice for the
+    \coloredhref[pink]{https://www.cta-observatory.org/ctao-adopts-the-gammapy-software-package-for-science-analysis/}{CTA Science Tools}.
 
     Nullam non est elit. In eu ornare justo. Maecenas porttitor sodales lacus,
     ut cursus augue sodales ac.
