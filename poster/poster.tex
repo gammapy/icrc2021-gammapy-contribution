@@ -43,6 +43,8 @@
 
 \newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
 \newcommand{\coloredhref}[3][blue]{\href{#2}{\color{#1}{#3}}}%
+\newcommand*{\mathscale}[2][4]{\scalebox{#1}{\ensuremath{#2}}}%
+\newcommand{\gammapysymbol}{\mathscale[1.5]{\raisebox{6pt}{\gamma} \pi}}
 
 % ====================
 % Title
@@ -51,31 +53,34 @@
 \title{Gammapy: a Python Package for Gamma-Ray Astronomy}
 
 \author{
-    \textbf{Axel, Donath} \orcidlink{0000-0003-4568-7005} \inst{1} \and
-    \textbf{Regis, Terrier} \inst{2} \and
-    Atreyee Sinha \inst{3} \and
-    Luca Giunti \inst{4} \and
+    \textbf{Axel Donath} \orcidlink{0000-0003-4568-7005} \inst{1} \and
+    \textbf{R\'{e}gis Terrier} \inst{2} \and
+    Jos\'{e} Enrique~Ruiz \inst{5} \and
     Quentin Remy \inst{1} \and
-    Jose Enrique,~Ruiz \inst{5} \and
-    Fabio,~Acero \inst{6} \and
-    Fabio,~Pintore \inst{7} \and
-    Cosimo,~Nigro \orcidlink{0000-0001-8375-1907} \inst{8} \and
-    Bruno,~Khelifi  \inst{2} \and
-    Laura,~Oliviera-Nieto  \orcidlink{0000-0002-9105-0518} \inst{1} \and
-    Maximilian, Noethe \inst{9} \and
-    for the Gammapy developers
+    Atreyee Sinha \inst{3} \and
+    Fabio~Pintore \inst{7} \and
+    Laura~Oliviera-Nieto  \orcidlink{0000-0002-9105-0518} \inst{1} \and
+    Luca Giunti \inst{4} \and
+    Fabio~Acero \inst{6} \and
+    Cosimo~Nigro~\orcidlink{0000-0001-8375-1907}~\inst{8} \and
+    Alexis de Almeida Coutinho~\inst{10} \and
+    Bruno~Khelifi  \inst{2} \and
+    Maximilian N\"{o}the \inst{9} \and
+    Jalel Eddine Hajlaoui \inst{2} \and
+    for the Gammapy development team
   }
 
 \institute[shortinst]{
-    \inst{1} MPIK, Heidelberg \samelineand
-    \inst{2} APC, Paris \samelineand
-    \inst{3} LUPM, Montpellier \samelineand
-    \inst{4} CEA, Paris \samelineand
-    \inst{5} IAA, Granada \samelineand
-    \inst{6} CNRS, Paris \samelineand
-    \inst{7} INAF-IASF, Palermo \samelineand
-    \inst{8} IFAE, Barcelona \samelineand
-    \inst{9} TU Dortmund, Dortmund
+    \inst{1} MPIK Heidelberg \samelineand
+    \inst{2} APC Paris \samelineand
+    \inst{3} LUPM Montpellier \samelineand
+    \inst{4} CEA Paris \samelineand
+    \inst{5} IAA Granada \samelineand
+    \inst{6} CNRS Paris \samelineand
+    \inst{7} INAF-IASF Palermo \samelineand
+    \inst{8} IFAE Barcelona \samelineand
+    \inst{9} TU Dortmund \samelineand
+    \inst{10} Universidade de S\~{a}o Paulo
     }
 
 % ====================
@@ -83,12 +88,15 @@
 % ====================
 
 \footercontent{
-  \href{https://www.gammapy.org}{$\gamma \pi$~~Webpage} \hfill
+  \href{https://gammapy.org}{\gammapysymbol~~Webpage} \hfill
+  \href{https://docs.gammapy.org}{\gammapysymbol~~Documentation} \hfill
   \href{https://github.com/gammapy/gammapy/}{\faGithub~~Github}  \hfill
   \href{https://twitter.com/gammapyst}{\faTwitter~~Twitter}  \hfill
   \href{https://gammapy.slack.com/}{\faSlack~~Slack}  \hfill
-  ICRC 2021, Berlin \hfill
-  \href{mailto:alyssa.p.hacker@example.com}{alyssa.p.hacker@example.com}}
+  \href{https://gammapy.org/gammapy_song.mp3}{\faMusic~~Song}  \hfill
+  \href{https://indico.desy.de/event/27991/contributions/102086/}{ICRC 2021, Berlin}
+  %\href{mailto:alyssa.p.hacker@example.com}{alyssa.p.hacker@example.com}
+  }
 % (can be left out to remove footer)
 
 % ====================
@@ -96,7 +104,7 @@
 % ====================
 
 % use this to include logos on the left and/or right side of the header:
-\logoright{\includegraphics[height=7cm]{figures/logo/gammapy_logo_white.pdf}}
+\logoright{\includegraphics[height=7cm]{figures/gammapy_logo_white.pdf}}
 % \logoleft{\includegraphics[height=7cm]{logo2.pdf}}
 
 % ====================
@@ -105,55 +113,71 @@
 
 \begin{document}
 
-\begin{frame}[t]
+\begin{frame}[t, fragile]
 \begin{columns}[t]
 \separatorcolumn
 
 \begin{column}{\colwidth}
 
-  \begin{block}{Introduction \& Motivation}
+  \begin{block}{Abstract}
 
-    Some block contents, followed by a diagram, followed by a dummy paragraph.
+\heading{Overview}
+Gammapy is a community-developed, open source Python package for gamma-ray Astronomy, 
+which is built on the scientific Python ecosystem \coloredhref[pink]{https://numpy.org}{Numpy},
+\coloredhref[pink]{https://scipy.org}{Scipy} and \coloredhref[pink]{https://astropy.org}{Astropy}.
+It provides methods for the analysis of gamma-ray data of many existing instruments including
+Imaging Atmospheric Cherenkov Telescopes, such as \coloredhref[pink]{https://www.mpi-hd.mpg.de/hfm/HESS/}{HESS}, \coloredhref[pink]{https://magic.mpp.mpg.de}{MAGIC} and \coloredhref[pink]{https://veritas.sao.arizona.edu}{VERITAS}, Water Cherenkov observatories such as \coloredhref[pink]{https://www.hawc-observatory.org}{HAWC}, as well as space based observatories such as \coloredhref[pink]{https://fermi.gsfc.nasa.gov}{Fermi-LAT}. Gammapy has also recently been selected as the package of choice for the \coloredhref[pink]{https://www.cta-observatory.org/ctao-adopts-the-gammapy-software-package-for-science-analysis/}{CTA Science Tools}.
 
+
+\heading{Main Features}
+Starting from event lists and a description of the specific instrument response functions (IRF)
+stored in \coloredhref[pink]{https://gamma-astro-data-formats.readthedocs.io/en/latest/}{open FITS based data formats}, Gammapy implements the reduction of the input data
+and instrument response to binned WCS, HEALPix or region based data structures. 
+Thereby it handles the dependency of the IRFs with time, energy as well as position on the sky.
+It offers a variety of background estimation methods for spectral, spatial and spectro-morphological 
+analysis. Counts, background and IRFs data are bundled in datasets and can be serialised, rebinned
+and stacked.
+
+Gammapy supports to reduce and model binned data using Poisson maximum likelihood fitting.
+It comes with \coloredhref[pink]{https://docs.gammapy.org/0.18.2/modeling/gallery/index.html\#model-gallery}{built-in spectral, spatial and temporal models} as well as support for custom user models,
+to model e.g. energy dependent morphology of gamma-ray sources. Multiple datasets
+can be combined in a joint-likelihood approach to either handle time dependent IRFs, different classes
+of events or combination of data from multiple instruments. Gammapy also implements
+methods to estimate flux points, including likelihood profiles per energy bin, light curves as well as
+flux and signficance maps in energy bins.
+
+% \heading{CTA Science Tools}
+% Gammapy has recently been selected as the package of choice for the
+%     \coloredhref[pink]{https://www.cta-observatory.org/ctao-adopts-the-gammapy-software-package-for-science-analysis/}{CTA Science Tools}.
+
+
+% Starting from event lists and a description of the specific instrument response functions (IRF)
+% stored in open FITS based data formats, Gammapy implements the reduction of the input data
+% and instrument response to binned WCS, HEALPix or region based data structures. 
+% Thereby it handles the dependency of the IRFs with time, energy as well as position on the sky.
+% It offers a variety of background estimation methods for spectral, spatial and spectro-morphological 
+% analysis. Counts, background and IRFs data are bundled in datasets and can be serialised, rebinned
+% and stacked.
+
+% Gammapy supports to model binned data using Poisson maximum likelihood fitting.
+% It comes with built-in spectral, spatial and temporal models as well as support for custom user models,
+% to model e.g. energy dependent morphology of gamma-ray sources. Multiple datasets
+% can be combined in a joint-likelihood approach to either handle time dependent IRFs, different classes
+% of events or combination of data from multiple instruments. Gammapy also implements
+% methods to estimate flux points, including likelihood profiles per energy bin, light curves as well as
+% flux and signficance maps in energy bins.
+
+
+  \end{block}
+
+  \begin{block}{Analysis Example I}
     \begin{figure}
       \centering
-      \begin{tikzpicture}[scale=6]
-        \draw[step=0.25cm,color=gray] (-1,-1) grid (1,1);
-        \draw (1,0) -- (0.2,0.2) -- (0,1) -- (-0.2,0.2) -- (-1,0)
-          -- (-0.2,-0.2) -- (0,-1) -- (0.2,-0.2) -- cycle;
-      \end{tikzpicture}
-      \caption{A figure caption.}
+      \includegraphics[width=\textwidth]{figures/fermi-gc-sqrt-ts.pdf}
+      \caption{TS-maps in two energy bands computed for \coloredhref[pink]{https://fermi.gsfc.nasa.gov}{Fermi-LAT} (3FHL) data in the Galactic Center region. The TS-maps are computed assuming a point-like source morphology and a power-law shaped spectral model with spectral index of $\Gamma = 2$. The example is adapted from the \coloredhref[pink]{https://docs.gammapy.org/0.18.2/tutorials/detect.html}{source detection tutorial}.}
     \end{figure}
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies
-    eget libero ac ullamcorper. Integer et euismod ante. Aenean vestibulum
-    lobortis augue, ut lobortis turpis rhoncus sed. Proin feugiat nibh a
-    lacinia dignissim. Proin scelerisque, risus eget tempor fermentum, ex
-    turpis condimentum urna, quis malesuada sapien arcu eu purus.
-
+ 
   \end{block}
-
-  \begin{block}{A block containing a list}
-
-    Nam vulputate nunc felis, non condimentum lacus porta ultrices. Nullam sed
-    sagittis metus. Etiam consectetur gravida urna quis suscipit.
-
-    \begin{itemize}
-      \item \textbf{Mauris tempor} risus nulla, sed ornare
-      \item \textbf{Libero tincidunt} a duis congue vitae
-      \item \textbf{Dui ac pretium} morbi justo neque, ullamcorper
-    \end{itemize}
-
-    Eget augue porta, bibendum venenatis tortor.
-
-  \end{block}
-
-  \begin{alertblock}{Install Gammapy}
-
-    Thre recommanded way to install Gammapy is to \coloredhref[pink]{https://www.anaconda.com/products/individual}{download the Anaconda Python distribution} and then create a new virtual environment
-    from the dedicated conda environment file:
-
-  \end{alertblock}
 
 \end{column}
 
@@ -161,38 +185,31 @@
 
 \begin{column}{\colwidth}
 
-  \begin{block}{A block containing an enumerated list}
+  \begin{alertblock}{Install Gammapy}
 
-    Vivamus congue volutpat elit non semper. Praesent molestie nec erat ac
-    interdum. In quis suscipit erat. \textbf{Phasellus mauris felis, molestie
-    ac pharetra quis}, tempus nec ante. Donec finibus ante vel purus mollis
-    fermentum. Sed felis mi, pharetra eget nibh a, feugiat eleifend dolor. Nam
-    mollis condimentum purus quis sodales. Nullam eu felis eu nulla eleifend
-    bibendum nec eu lorem. Vivamus felis velit, volutpat ut facilisis ac,
-    commodo in metus.
+    The recommanded way to install Gammapy is to \coloredhref[pink]{https://www.anaconda.com/products/individual}{download the Anaconda Python distribution} and then create a new virtual environment
+    from the dedicated conda environment file:
+%
+    \begin{verbatim}
+$ curl -O https://gammapy.org/download/install/gammapy-0.18.2-environment.yml
+$ conda env create -f gammapy-0.18.2-environment.yml
+$ conda activate gammapy-0.18.2
+$ gammapy download tutorials --release 0.18.2
+    \end{verbatim}
+%
+    \vspace{-24pt} 
+    For more detailed instructions and other ways to install Gammapy see \coloredhref[pink]{https://docs.gammapy.org/0.18.2/install/index.html}{installation instructions}.
+  \end{alertblock}
 
-    \begin{enumerate}
-      \item \textbf{Morbi mauris purus}, egestas at vehicula et, convallis
-        accumsan orci. Orci varius natoque penatibus et magnis dis parturient
-        montes, nascetur ridiculus mus.
-      \item \textbf{Cras vehicula blandit urna ut maximus}. Aliquam blandit nec
-        massa ac sollicitudin. Curabitur cursus, metus nec imperdiet bibendum,
-        velit lectus faucibus dolor, quis gravida metus mauris gravida turpis.
-      \item \textbf{Vestibulum et massa diam}. Phasellus fermentum augue non
-        nulla accumsan, non rhoncus lectus condimentum.
-    \end{enumerate}
-
-  \end{block}
-
-  \begin{block}{Package Stucture}
-
+  \begin{block}{Gammapy Package and API}
+  Gammapy is structured into sub-packages correspoding to the different data levels and transitions between them. Gammapy can be typically \coloredhref[pink]{https://docs.gammapy.org/0.18.2/tutorials/analysis_2.html}{used as a standard Python library} by importing the functionality from the sub-packages, but there is also a configuration file based \coloredhref[pink]{https://docs.gammapy.org/0.18.2/tutorials/analysis_1.html}{high level analysis API}.
     \begin{figure}
       \centering
       \includegraphics[width=\textwidth]{figures/data-flow-gammapy.pdf}
       \caption{Data flow and sub-package structure of Gammapy. The folder icons represent the corresponding sub-packages. The direction of the the data flow is illustrated with shaded arrows. The top section shows the data levels as defined by \coloredhref[pink]{https://www.cta-observatory.org}{CTA}.}
     \end{figure}
 
-  Gammapy is structured into sub-packages.
+  %Gammapy is structured into sub-packages.
 
   \end{block}
 
@@ -237,71 +254,29 @@
 
 \begin{column}{\colwidth}
 
-  \begin{block}{CTA Science Tools}
-    Gammapy has recently been selected as the package of choice for the
-    \coloredhref[pink]{https://www.cta-observatory.org/ctao-adopts-the-gammapy-software-package-for-science-analysis/}{CTA Science Tools}.
+  \begin{block}{Analysis Example II}
 
-    Nullam non est elit. In eu ornare justo. Maecenas porttitor sodales lacus,
-    ut cursus augue sodales ac.
-
-    $$
-    \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
-    $$
-
-    Interdum et malesuada fames $\{1, 4, 9, \ldots\}$ ac ante ipsum primis in
-    faucibus. Cras eleifend dolor eu nulla suscipit suscipit. Sed lobortis non
-    felis id vulputate.
-
-    \heading{A heading inside a block}
-
-    Praesent consectetur mi $x^2 + y^2$ metus, nec vestibulum justo viverra
-    nec. Proin eget nulla pretium, egestas magna aliquam, mollis neque. Vivamus
-    dictum $\mathbf{u}^\intercal\mathbf{v}$ sagittis odio, vel porta erat
-    congue sed. Maecenas ut dolor quis arcu auctor porttitor.
-
-    \heading{Another heading inside a block}
-
-    Sed augue erat, scelerisque a purus ultricies, placerat porttitor neque.
-    Donec $P(y \mid x)$ fermentum consectetur $\nabla_x P(y \mid x)$ sapien
-    sagittis egestas. Duis eget leo euismod nunc viverra imperdiet nec id
-    justo.
-
+    \begin{figure}
+      \centering
+      \includegraphics[width=\textwidth]{figures/cta-gc-image-spectrum.pdf}
+      \caption{Spectral analysis of simulated \coloredhref[pink]{https://www.cta-observatory.org}{CTA} data in the Galactic Center region. The left image illustrates the reflected regions used for the  background estimation of the spectrum, the right image shows the estimated flux points with the
+      corresponding likelihood profiles. The example is adapted from the \coloredhref[pink]{https://docs.gammapy.org/0.18.2/tutorials/cta_data_analysis.html}{cta data analysis tutorial} }
+    \end{figure}
   \end{block}
 
-  \begin{block}{Nullam vel erat at velit convallis laoreet}
+  \begin{block}{Science Validation and Analyses using Gammapy}
+  Gammapy is already used for many interesting analysis of real and simulated data of many different instruments, such as \coloredhref[pink]{https://www.mpi-hd.mpg.de/hfm/HESS/}{HESS}, \coloredhref[pink]{https://www.hawc-observatory.org}{HAWC} and \coloredhref[pink]{https://www.cta-observatory.org}{CTA}. The following list highlights a few selected studies presented at this ICRC 2021:
 
-    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-    inceptos himenaeos. Phasellus libero enim, gravida sed erat sit amet,
-    scelerisque congue diam. Fusce dapibus dui ut augue pulvinar iaculis.
+  \begin{itemize}
+    \item \coloredhref[pink]{https://indico.desy.de/event/27991/contributions/101917/}{Survey of the Galactic Plane with the Cherenkov Telescope Array}
+    \item \coloredhref[pink]{https://indico.desy.de/event/27991/contributions/101916/}{Large-scale diffuse emission in the H.E.S.S. Galactic Plane Survey}
+    \item \coloredhref[pink]{https://indico.desy.de/event/27991/contributions/101942/}{Discovery of 100 TeV gamma-rays from HESS J1702-420: a new PeVatron candidate}
+    \item \coloredhref[pink]{https://indico.desy.de/event/27991/contributions/101938/}{Search for enhanced TeV gamma ray emission from Giant Molecular Clouds using H.E.S.S.}
+    \item \coloredhref[pink]{https://indico.desy.de/event/27991/contributions/101937/}{The young massive stellar cluster Westerlund 1 in gamma rays as seen with H.E.S.S.}
+    \item \coloredhref[pink]{https://indico.desy.de/event/27991/contributions/102013/}{Standardized formats for gamma-ray analysis applied to HAWC observatory data}
+  \end{itemize}
 
-    \begin{table}
-      \centering
-      \begin{tabular}{l r r c}
-        \toprule
-        \textbf{First column} & \textbf{Second column} & \textbf{Third column} & \textbf{Fourth} \\
-        \midrule
-        Foo & 13.37 & 384,394 & $\alpha$ \\
-        Bar & 2.17 & 1,392 & $\beta$ \\
-        Baz & 3.14 & 83,742 & $\delta$ \\
-        Qux & 7.59 & 974 & $\gamma$ \\
-        \bottomrule
-      \end{tabular}
-      \caption{A table caption.}
-    \end{table}
-
-    Donec quis posuere ligula. Nunc feugiat elit a mi malesuada consequat. Sed
-    imperdiet augue ac nibh aliquet tristique. Aenean eu tortor vulputate,
-    eleifend lorem in, dictum urna. Proin auctor ante in augue tincidunt
-    tempor. Proin pellentesque vulputate odio, ac gravida nulla posuere
-    efficitur. Aenean at velit vel dolor blandit molestie. Mauris laoreet
-    commodo quam, non luctus nibh ullamcorper in. Class aptent taciti sociosqu
-    ad litora torquent per conubia nostra, per inceptos himenaeos.
-
-    Nulla varius finibus volutpat. Mauris molestie lorem tincidunt, iaculis
-    libero at, gravida ante. Phasellus at felis eu neque suscipit suscipit.
-    Integer ullamcorper, dui nec pretium ornare, urna dolor consequat libero,
-    in feugiat elit lorem euismod lacus. Pellentesque sit amet dolor mollis,
-    auctor urna non, tempus sem.
+Gammapy has been validated using \coloredhref[pink]{https://www.mpi-hd.mpg.de/hfm/HESS/pages/dl3-dr1/}{public H.E.S.S. data} in \cite{Mohrmann2019} and was has beed used for an open and reproducible multi-instrument analysis of the Crab Nebula in \cite{Nigro2019}. The validation of reference results and performance bechmarks are executed and documented continuously in the corresponding \coloredhref[pink]{https://github.com/gammapy/gammapy-benchmarks}{Gammapy benchmarks repository}.
 
   \end{block}
 
