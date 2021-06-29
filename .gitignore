@@ -11,6 +11,11 @@
 *.cb
 *.cb2
 
+## data files
+*.fits
+*.yaml
+*.dat
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
@@ -180,7 +185,7 @@ TSWLatexianTemp*
 # KBibTeX
 *~[0-9]*
 
-gammapy-paper.pdf
+gammapy-poster.pdf
 
 .idea/
 .DS_Store
