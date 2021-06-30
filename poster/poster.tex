@@ -122,26 +122,26 @@
   \begin{block}{Abstract}
 
 \heading{Overview}
-Gammapy is a community-developed, open source Python package for gamma-ray Astronomy, 
+Gammapy is a community-developed, open source Python package for gamma-ray astronomy, 
 which is built on the scientific Python ecosystem including \coloredhref[pink]{https://numpy.org}{Numpy},
 \coloredhref[pink]{https://scipy.org}{Scipy} and \coloredhref[pink]{https://astropy.org}{Astropy}.
 It provides methods for the analysis of gamma-ray data of many existing instruments including
-Imaging Atmospheric Cherenkov Telescopes, such as \coloredhref[pink]{https://www.mpi-hd.mpg.de/hfm/HESS/}{HESS}, \coloredhref[pink]{https://magic.mpp.mpg.de}{MAGIC} and \coloredhref[pink]{https://veritas.sao.arizona.edu}{VERITAS}, Water Cherenkov observatories such as \coloredhref[pink]{https://www.hawc-observatory.org}{HAWC}, as well as space based observatories such as \coloredhref[pink]{https://fermi.gsfc.nasa.gov}{Fermi-LAT}. Gammapy has also recently been selected as the package of choice for the \coloredhref[pink]{https://www.cta-observatory.org/ctao-adopts-the-gammapy-software-package-for-science-analysis/}{CTA Science Tools}.
+imaging atmospheric Cherenkov telescopes, such as \coloredhref[pink]{https://www.mpi-hd.mpg.de/hfm/HESS/}{HESS}, \coloredhref[pink]{https://magic.mpp.mpg.de}{MAGIC} and \coloredhref[pink]{https://veritas.sao.arizona.edu}{VERITAS}, water Cherenkov observatories such as \coloredhref[pink]{https://www.hawc-observatory.org}{HAWC}, as well as space-based observatories such as \coloredhref[pink]{https://fermi.gsfc.nasa.gov}{Fermi-LAT}. Gammapy has also recently been selected as the package of choice for the \coloredhref[pink]{https://www.cta-observatory.org/ctao-adopts-the-gammapy-software-package-for-science-analysis/}{CTA Science Tools}.
 
 
 \heading{Main Features}
 Starting from event lists and a description of the specific instrument response functions (IRF)
-stored in \coloredhref[pink]{https://gamma-astro-data-formats.readthedocs.io/en/latest/}{open FITS based data formats}, Gammapy implements the reduction of the input data
-and instrument response to binned WCS, HEALPix or region based data structures. 
-Thereby it handles the dependency of the IRFs with time, energy as well as position on the sky.
+stored in an \coloredhref[pink]{https://gamma-astro-data-formats.readthedocs.io/en/latest/}{open FITS based data format}, Gammapy implements the reduction of the input data
+and instrument response to binned data structures. 
+Thereby it handles the dependency of the data and IRFs with energy as well as position on the sky.
 It offers a variety of background estimation methods for spectral, spatial and spectro-morphological 
 analysis. Counts, background and IRFs data are bundled in datasets and can be serialised, rebinned
 and stacked.
 
-Gammapy supports to reduce and model binned data using Poisson maximum likelihood fitting.
+Gammapy allowfs for reduction and subsequent modelling of binned data using Poisson maximum likelihood fitting.
 It comes with \coloredhref[pink]{https://docs.gammapy.org/0.18.2/modeling/gallery/index.html\#model-gallery}{built-in spectral, spatial and temporal models} as well as support for custom user models,
-to model e.g. \coloredhref[pink]{https://docs.gammapy.org/0.18.2/tutorials/models.html#Models-with-Energy-dependent-morphology}{energy dependent morphology} of gamma-ray sources. Multiple datasets
-can be combined in a joint-likelihood approach to either handle time dependent IRFs, different classes
+to model e.g. \coloredhref[pink]{https://docs.gammapy.org/0.18.2/tutorials/models.html#Models-with-Energy-dependent-morphology}{energy-dependent morphology} of gamma-ray sources. Multiple datasets
+can be combined in a joint-likelihood approach to either handle time-dependent IRFs, different classes
 of events or combination of data from multiple instruments. Gammapy also implements
 methods to estimate flux points, including likelihood profiles per energy bin, light curves as well as
 flux and significance maps in energy bins.
@@ -259,8 +259,8 @@ $ gammapy download tutorials --release 0.18.2
     \begin{figure}
       \centering
       \includegraphics[width=\textwidth]{figures/cta-gc-image-spectrum.pdf}
-      \caption{Spectral analysis of simulated \coloredhref[pink]{https://www.cta-observatory.org}{CTA} data in the Galactic Center region. The left image illustrates the reflected regions used for the  background estimation of the spectrum, the right image shows the estimated flux points with the
-      corresponding likelihood profiles. The example is adapted from the \coloredhref[pink]{https://docs.gammapy.org/0.18.2/tutorials/cta_data_analysis.html}{cta data analysis tutorial} }
+      \caption{Spectral analysis of multiple simulated \coloredhref[pink]{https://www.cta-observatory.org}{CTA} observations in the Galactic Center region. The left image illustrates the reflected regions used for the  background estimation of the spectrum, the right image shows the estimated flux points with the
+      corresponding likelihood profiles. The example is adapted from the \coloredhref[pink]{https://docs.gammapy.org/0.18.2/tutorials/cta_data_analysis.html}{cta data analysis tutorial}.}
     \end{figure}
   \end{block}
 
@@ -276,7 +276,7 @@ $ gammapy download tutorials --release 0.18.2
     \item \coloredhref[pink]{https://indico.desy.de/event/27991/contributions/102013/}{Standardized formats for gamma-ray analysis applied to HAWC observatory data}
   \end{itemize}
 
-Gammapy has been validated using \coloredhref[pink]{https://www.mpi-hd.mpg.de/hfm/HESS/pages/dl3-dr1/}{public H.E.S.S. data} in \cite{Mohrmann2019} and was has beed used for an open and reproducible multi-instrument analysis of the Crab Nebula in \cite{Nigro2019}. The validation of reference results and performance bechmarks are executed and documented continuously in the corresponding \coloredhref[pink]{https://github.com/gammapy/gammapy-benchmarks}{Gammapy benchmarks repository}.
+Gammapy has been validated using \coloredhref[pink]{https://www.mpi-hd.mpg.de/hfm/HESS/pages/dl3-dr1/}{public H.E.S.S. data} in \cite{Mohrmann2019} and has been used for an open and reproducible multi-instrument analysis of the Crab Nebula in \cite{Nigro2019}. The validation of reference results and performance bechmarks are executed and documented continuously in the corresponding \coloredhref[pink]{https://github.com/gammapy/gammapy-benchmarks}{Gammapy benchmarks repository} on a nightly basis.
 
   \end{block}
 
