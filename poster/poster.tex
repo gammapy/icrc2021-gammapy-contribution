@@ -11,24 +11,17 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[size=custom, width=120, height=67.5, scale=1.0]{beamerposter}
+\usepackage[size=custom, width=120, height=67.5, scale=0.99]{beamerposter}
 \usetheme{gemini}
 \usecolortheme{gammapy}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{pgfplots}
-%\usepackage{minted}
-% \lstset{
-%   language=bash,
-%   basicstyle=\ttfamily
-% }
 \usepackage{fontawesome5}
 \usepackage{orcidlink}
 \setbeamerfont{caption name}{series=\bfseries}
 \setbeamerfont{footline}{size=\fontsize{32}{11}\selectfont}
-
-\definecolor{monokaibg}{HTML}{272822}
 
 % ====================
 % Lengths
@@ -95,7 +88,6 @@
   \href{https://gammapy.slack.com/}{\faSlack~~Slack}  \hfill
   \href{https://gammapy.org/gammapy_song.mp3}{\faMusic~~Song}  \hfill
   \href{https://indico.desy.de/event/27991/contributions/102086/}{ICRC 2021, Berlin}
-  %\href{mailto:alyssa.p.hacker@example.com}{alyssa.p.hacker@example.com}
   }
 % (can be left out to remove footer)
 
@@ -146,28 +138,6 @@ of events or combination of data from multiple instruments. Gammapy also impleme
 methods to estimate flux points, including likelihood profiles per energy bin, light curves as well as
 flux and significance maps in energy bins.
 
-% \heading{CTA Science Tools}
-% Gammapy has recently been selected as the package of choice for the
-%     \coloredhref[pink]{https://www.cta-observatory.org/ctao-adopts-the-gammapy-software-package-for-science-analysis/}{CTA Science Tools}.
-
-
-% Starting from event lists and a description of the specific instrument response functions (IRF)
-% stored in open FITS based data formats, Gammapy implements the reduction of the input data
-% and instrument response to binned WCS, HEALPix or region based data structures. 
-% Thereby it handles the dependency of the IRFs with time, energy as well as position on the sky.
-% It offers a variety of background estimation methods for spectral, spatial and spectro-morphological 
-% analysis. Counts, background and IRFs data are bundled in datasets and can be serialised, rebinned
-% and stacked.
-
-% Gammapy supports to model binned data using Poisson maximum likelihood fitting.
-% It comes with built-in spectral, spatial and temporal models as well as support for custom user models,
-% to model e.g. energy dependent morphology of gamma-ray sources. Multiple datasets
-% can be combined in a joint-likelihood approach to either handle time dependent IRFs, different classes
-% of events or combination of data from multiple instruments. Gammapy also implements
-% methods to estimate flux points, including likelihood profiles per energy bin, light curves as well as
-% flux and signficance maps in energy bins.
-
-
   \end{block}
 
   \begin{block}{Analysis Example I}
@@ -211,42 +181,6 @@ $ conda activate gammapy-0.18.2
   %Gammapy is structured into sub-packages.
 
   \end{block}
-
-  % \begin{block}{Nam cursus consequat egestas}
-
-  %   Nulla eget sem quam. Ut aliquam volutpat nisi vestibulum convallis. Nunc a
-  %   lectus et eros facilisis hendrerit eu non urna. Interdum et malesuada fames
-  %   ac ante \textit{ipsum primis} in faucibus. Etiam sit amet velit eget sem
-  %   euismod tristique. Praesent enim erat, porta vel mattis sed, pharetra sed
-  %   ipsum. Morbi commodo condimentum massa, \textit{tempus venenatis} massa
-  %   hendrerit quis. Maecenas sed porta est. Praesent mollis interdum lectus,
-  %   sit amet sollicitudin risus tincidunt non.
-
-  %   Etiam sit amet tempus lorem, aliquet condimentum velit. Donec et nibh
-  %   consequat, sagittis ex eget, dictum orci. Etiam quis semper ante. Ut eu
-  %   mauris purus. Proin nec consectetur ligula. Mauris pretium molestie
-  %   ullamcorper. Integer nisi neque, aliquet et odio non, sagittis porta justo.
-
-  %   \begin{itemize}
-  %     \item \textbf{Sed consequat} id ante vel efficitur. Praesent congue massa
-  %       sed est scelerisque, elementum mollis augue iaculis.
-  %       \begin{itemize}
-  %         \item In sed est finibus, vulputate
-  %           nunc gravida, pulvinar lorem. In maximus nunc dolor, sed auctor eros
-  %           porttitor quis.
-  %         \item Fusce ornare dignissim nisi. Nam sit amet risus vel lacus
-  %           tempor tincidunt eu a arcu.
-  %         \item Donec rhoncus vestibulum erat, quis aliquam leo
-  %           gravida egestas.
-  %       \end{itemize}
-  %     \item \textbf{Sed luctus, elit sit amet} dictum maximus, diam dolor
-  %       faucibus purus, sed lobortis justo erat id turpis.
-  %     \item \textbf{Pellentesque facilisis dolor in leo} bibendum congue.
-  %       Maecenas congue finibus justo, vitae eleifend urna facilisis at.
-  %   \end{itemize}
-
-  % \end{block}
-
 \end{column}
 
 \separatorcolumn
@@ -262,7 +196,7 @@ $ conda activate gammapy-0.18.2
       corresponding likelihood profiles. The example is adapted from the \coloredhref[pink]{https://docs.gammapy.org/0.18.2/tutorials/cta_data_analysis.html}{cta data analysis tutorial}.}
     \end{figure}
   \end{block}
-
+  \vspace{-36pt} 
   \begin{block}{Science Validation and Analyses using Gammapy}
   Gammapy is already used for many interesting analysis of real and simulated data of many different instruments, such as \coloredhref[pink]{https://www.mpi-hd.mpg.de/hfm/HESS/}{HESS}, \coloredhref[pink]{https://www.hawc-observatory.org}{HAWC} and \coloredhref[pink]{https://www.cta-observatory.org}{CTA}. The following list highlights a few selected studies presented at this ICRC 2021:
 
@@ -282,7 +216,7 @@ Gammapy has been validated using \coloredhref[pink]{https://www.mpi-hd.mpg.de/hf
   \begin{block}{References}
 
     \nocite{*}
-    \footnotesize{\bibliographystyle{plain}\bibliography{poster}}
+    \footnotesize{\bibliographystyle{plainurl}\bibliography{poster}}
 
   \end{block}
 
